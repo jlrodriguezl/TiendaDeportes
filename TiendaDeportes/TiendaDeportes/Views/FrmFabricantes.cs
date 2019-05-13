@@ -16,5 +16,10 @@ namespace TiendaDeportes.Views
         {
             InitializeComponent();
         }
+
+        private void FrmFabricantes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
