@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btmBuscar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.cboTipoDominio = new System.Windows.Forms.ComboBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btmBuscar = new System.Windows.Forms.Button();
             this.grdDominios = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -57,16 +57,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Dominio";
             // 
-            // btmBuscar
+            // cboTipoDominio
             // 
-            this.btmBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmBuscar.Location = new System.Drawing.Point(311, 21);
-            this.btmBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btmBuscar.Name = "btmBuscar";
-            this.btmBuscar.Size = new System.Drawing.Size(133, 35);
-            this.btmBuscar.TabIndex = 3;
-            this.btmBuscar.Text = "Buscar";
-            this.btmBuscar.UseVisualStyleBackColor = true;
+            this.cboTipoDominio.FormattingEnabled = true;
+            this.cboTipoDominio.Location = new System.Drawing.Point(8, 25);
+            this.cboTipoDominio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboTipoDominio.Name = "cboTipoDominio";
+            this.cboTipoDominio.Size = new System.Drawing.Size(265, 23);
+            this.cboTipoDominio.TabIndex = 5;
             // 
             // btnLimpiar
             // 
@@ -79,17 +77,23 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // cboTipoDominio
+            // btmBuscar
             // 
-            this.cboTipoDominio.FormattingEnabled = true;
-            this.cboTipoDominio.Location = new System.Drawing.Point(8, 25);
-            this.cboTipoDominio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTipoDominio.Name = "cboTipoDominio";
-            this.cboTipoDominio.Size = new System.Drawing.Size(265, 23);
-            this.cboTipoDominio.TabIndex = 5;
+            this.btmBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btmBuscar.Location = new System.Drawing.Point(311, 21);
+            this.btmBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btmBuscar.Name = "btmBuscar";
+            this.btmBuscar.Size = new System.Drawing.Size(133, 35);
+            this.btmBuscar.TabIndex = 3;
+            this.btmBuscar.Text = "Buscar";
+            this.btmBuscar.UseVisualStyleBackColor = true;
             // 
             // grdDominios
             // 
+            this.grdDominios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdDominios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdDominios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDominios.Location = new System.Drawing.Point(8, 22);
             this.grdDominios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
