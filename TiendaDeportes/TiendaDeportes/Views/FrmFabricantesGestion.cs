@@ -20,6 +20,7 @@ namespace TiendaDeportes.Views
         {
             //Dibujar el formulario
             InitializeComponent();
+            listarPaises();
             //Recibir el dato de la PK (Si es nulo es modo inserción)
             this.idFabricante = idFabricante;
 
@@ -36,7 +37,8 @@ namespace TiendaDeportes.Views
             {
                 //Consultar datos a editar de la base de datos
                 oFabricantes = db.FABRICANTES.Find(idFabricante);
-                txtNombre.Text = oFabricantes.NOM_FABRICANTE;               
+                txtNombre.Text = oFabricantes.NOM_FABRICANTE;
+                cboPais.SelectedValue = oFabricantes.PAIS_FABRICANTE;
             }
         }
 
@@ -66,7 +68,7 @@ namespace TiendaDeportes.Views
 
         private void FrmFabricantesGestion_Load(object sender, EventArgs e)
         {
-            listarPaises();
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
