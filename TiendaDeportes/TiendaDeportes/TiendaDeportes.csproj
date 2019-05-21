@@ -111,6 +111,18 @@
     <Compile Include="Views\FrmFabricantesGestion.Designer.cs">
       <DependentUpon>FrmFabricantesGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Productos.Designer.cs">
+      <DependentUpon>Productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductosGestion.Designer.cs">
+      <DependentUpon>ProductosGestion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -125,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmFabricantesGestion.resx">
       <DependentUpon>FrmFabricantesGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Productos.resx">
+      <DependentUpon>Productos.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\ModelTiendaDeportes.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
