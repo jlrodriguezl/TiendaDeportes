@@ -155,5 +155,10 @@ namespace TiendaDeportes.Views
                 }
             }
         }
+
+        private void GrdDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
