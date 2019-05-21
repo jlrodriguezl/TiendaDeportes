@@ -36,18 +36,7 @@ namespace TiendaDeportes.Views
             {
                 //Consultar datos a editar de la base de datos
                 oFabricantes = db.FABRICANTES.Find(idFabricante);
-                txtNombre.Text = oFabricantes.NOM_FABRICANTE;
-
-                for (int i = 0; i < cboPais.Items.Count; i++)
-                {
-
-                    if (cboPais.Items[i].ToString() == oFabricantes.PAIS_FABRICANTE)
-                    {
-                        cboPais.SelectedItem = (object)cboPais.Items[i];
-                        break;
-                    }
-                }
-                //cboPais.SelectedItem = (object)oFabricantes.PAIS_FABRICANTE;
+                txtNombre.Text = oFabricantes.NOM_FABRICANTE;               
             }
         }
 

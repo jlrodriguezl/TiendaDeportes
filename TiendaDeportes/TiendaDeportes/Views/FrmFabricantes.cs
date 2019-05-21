@@ -132,5 +132,28 @@ namespace TiendaDeportes.Views
                 refrescarTabla();
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //Obtener la fila que se va a eliminar
+            FABRICANTES f = this.getSelectedItem();
+            //Validar si hubo selección
+            if (f != null)
+            {
+                if (MessageBox.Show("Está seguro de eliminar este registro?",
+                    "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    using (tiendaEntities db = new tiendaEntities())
+                    {
+                        //Buscar en la BD el fabricante a eliminar
+                        FABRICANTES fabEliminar = db.FABRICANTES.Find(f.ID_FABRICANTE);
+                        db.FABRICANTES.Remove(fabEliminar);
+                        db.SaveChanges();
+                    }
+                    refrescarTabla();
+                }
+            }
+        }
     }
 }
