@@ -18,49 +18,68 @@ namespace TiendaDeportes.Views
             InitializeComponent();
         }
 
+        private void FrmDominios_Load(object sender, EventArgs e)
+        {
+            this.txtIdDominio.Focus();
+            refrescarTabla();
+            
+        }
         public void refrescarTabla()
         {
             using (tiendaEntities db = new tiendaEntities())
             {
-                var lstDominios= from d in db.DOMINIOS
+                var lstDominios = from d in db.DOMINIOS
+                                  select new
+                                  {
+                                      ID_DOMINIO = d.ID_DOMINIO,
+                                      TIPO_DOMINIO = d.TIPO_DOMINIO,
+                                      VLR_DOMINIO = d.VLR_DOMINIO
+                                  };
+                grdDominios.DataSource = lstDominios.ToList();
+            }
+        }
+
+        private void BtmBuscar_Click(object sender, EventArgs e)
+        {
+            using (tiendaEntities db = new tiendaEntities())
+            {
+                //consultar todos los dominios a través de LINQ
+                var lstDominios = from d in db.DOMINIOS
                                      select new
                                      {
                                          ID_DOMINIO = d.ID_DOMINIO,
                                          TIPO_DOMINIO = d.TIPO_DOMINIO,
                                          VLR_DOMINIO = d.VLR_DOMINIO
                                      };
+
+                //Aplicar filtros dependiendo de lo que haya escrito o seleccionado el usuario
+                if (!string.IsNullOrEmpty(this.txtIdDominio.Text))
+                {
+                    //filtrar por nombre de ID de dominio a través de EF
+                    lstDominios = lstDominios.Where(d => d.ID_DOMINIO.Contains(this.txtIdDominio.Text));
+                }
+                if (!string.IsNullOrEmpty(this.txtTipoDominio.Text))
+                {
+                    //filtrar por nombre de tipo de dominio a través de EF
+                    lstDominios = lstDominios.Where(d => d.TIPO_DOMINIO.Contains(this.txtTipoDominio.Text));
+                }
+                if (!string.IsNullOrEmpty(this.txtVlrDominio.Text))
+                {
+                    //filtrar por nombre de valor de dominio a través de EF
+                    lstDominios = lstDominios.Where(d => d.VLR_DOMINIO.Contains(this.txtVlrDominio.Text));
+                }
+
+
                 grdDominios.DataSource = lstDominios.ToList();
             }
         }
-        public void listarDominios()
-        {
-            using (tiendaEntities db = new tiendaEntities())
-            {
-             
-                var firstItem = new List<dynamic>()
-                {
-                    new { ID_DOMINIO = "N", VLR_DOMINIO = "Ninguno"}
-                };
 
-                //Escribir consulta a BD con LINQ
-                var lstDominios = (from d1 in firstItem select d1).Union(from d in db.DOMINIOS
-                                                                       //where d.TIPO_DOMINIO.Equals("DOCUMENTO")
-                                                                       orderby d.ID_DOMINIO
-                                                                       select new
-                                                                       {
-                                                                           ID_DOMINIO = d.ID_DOMINIO,
-                                                                           VLR_DOMINIO = d.VLR_DOMINIO
-                                                                       });
-                this.cboTipoDominio.DataSource = lstDominios.ToList();
-                this.cboTipoDominio.DisplayMember = "VLR_DOMINIO";
-                this.cboTipoDominio.ValueMember = "ID_DOMINIO";
-            }
-        }
-
-        private void FrmDominios_Load(object sender, EventArgs e)
+        private void BtnLimpiar_Click(object sender, EventArgs e)
         {
+            this.txtIdDominio.Text = "";
+            this.txtTipoDominio.Text = "";
+            this.txtVlrDominio.Text = "";
             refrescarTabla();
-            listarDominios();
         }
     }
 }

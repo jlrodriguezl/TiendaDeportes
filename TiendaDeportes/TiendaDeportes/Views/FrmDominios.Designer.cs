@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboTipoDominio = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btmBuscar = new System.Windows.Forms.Button();
             this.grdDominios = new System.Windows.Forms.DataGridView();
@@ -37,6 +36,12 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
+            this.txtTipoDominio = new System.Windows.Forms.TextBox();
+            this.txtIdDominio = new System.Windows.Forms.TextBox();
+            this.txtVlrDominio = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDominios)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -44,7 +49,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cboTipoDominio);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtVlrDominio);
+            this.groupBox1.Controls.Add(this.txtIdDominio);
+            this.groupBox1.Controls.Add(this.txtTipoDominio);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.btmBuscar);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -52,41 +62,34 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(457, 144);
+            this.groupBox1.Size = new System.Drawing.Size(733, 144);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tipo de Dominio";
-            // 
-            // cboTipoDominio
-            // 
-            this.cboTipoDominio.FormattingEnabled = true;
-            this.cboTipoDominio.Location = new System.Drawing.Point(8, 25);
-            this.cboTipoDominio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboTipoDominio.Name = "cboTipoDominio";
-            this.cboTipoDominio.Size = new System.Drawing.Size(265, 23);
-            this.cboTipoDominio.TabIndex = 5;
+            this.groupBox1.Text = "Buscar Dominios";
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(311, 80);
+            this.btnLimpiar.Location = new System.Drawing.Point(422, 77);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(133, 35);
             this.btnLimpiar.TabIndex = 4;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // btmBuscar
             // 
             this.btmBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmBuscar.Location = new System.Drawing.Point(311, 21);
+            this.btmBuscar.Location = new System.Drawing.Point(422, 20);
             this.btmBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btmBuscar.Name = "btmBuscar";
             this.btmBuscar.Size = new System.Drawing.Size(133, 35);
             this.btmBuscar.TabIndex = 3;
             this.btmBuscar.Text = "Buscar";
             this.btmBuscar.UseVisualStyleBackColor = true;
+            this.btmBuscar.Click += new System.EventHandler(this.BtmBuscar_Click);
             // 
             // grdDominios
             // 
@@ -148,6 +151,54 @@
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
             // 
+            // txtTipoDominio
+            // 
+            this.txtTipoDominio.Location = new System.Drawing.Point(146, 26);
+            this.txtTipoDominio.Name = "txtTipoDominio";
+            this.txtTipoDominio.Size = new System.Drawing.Size(174, 21);
+            this.txtTipoDominio.TabIndex = 5;
+            // 
+            // txtIdDominio
+            // 
+            this.txtIdDominio.Location = new System.Drawing.Point(146, 56);
+            this.txtIdDominio.Name = "txtIdDominio";
+            this.txtIdDominio.Size = new System.Drawing.Size(174, 21);
+            this.txtIdDominio.TabIndex = 6;
+            // 
+            // txtVlrDominio
+            // 
+            this.txtVlrDominio.Location = new System.Drawing.Point(146, 83);
+            this.txtVlrDominio.Name = "txtVlrDominio";
+            this.txtVlrDominio.Size = new System.Drawing.Size(174, 21);
+            this.txtVlrDominio.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 15);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "-Tipo de dominio:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 15);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "-ID Dominio:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 15);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "-Valor del Dominio:";
+            // 
             // FrmDominios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -166,6 +217,7 @@
             this.Text = "Dominios";
             this.Load += new System.EventHandler(this.FrmDominios_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDominios)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -177,11 +229,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btmBuscar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.ComboBox cboTipoDominio;
         private System.Windows.Forms.DataGridView grdDominios;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtVlrDominio;
+        private System.Windows.Forms.TextBox txtIdDominio;
+        private System.Windows.Forms.TextBox txtTipoDominio;
     }
 }
