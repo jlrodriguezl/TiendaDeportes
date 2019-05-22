@@ -21,11 +21,9 @@ namespace TiendaDeportes.Views
         public void refrescarTabla() {
             using (tiendaEntities db = new tiendaEntities())
             {
-                var lstFabricantes = from f in db.FABRICANTES
+                var lstFabricantes = from f in db.CATEGORIAS
                                      select new {
-                                         ID_FABRICANTE = f.ID_FABRICANTE,
-                                         NOM_FABRICANTE = f.NOM_FABRICANTE,
-                                         PAIS_FABRICANTE = f.PAIS_FABRICANTE
+                                         
                                      };
                 grdDatos.DataSource = lstFabricantes.ToList();
             }

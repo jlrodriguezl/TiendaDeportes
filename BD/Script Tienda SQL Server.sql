@@ -74,7 +74,7 @@ INSERT INTO DOMINIOS VALUES
 ('PAISES', 'BRA', 'BRAZIL'),
 ('PAISES', 'MEX', 'MEXICO');
 
-
+inse
 
 
 
