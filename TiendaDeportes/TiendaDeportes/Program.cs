@@ -17,7 +17,7 @@ namespace TiendaDeportes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmFabricantes());
+            Application.Run(new Productos());
         }
     }
 }
