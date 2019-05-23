@@ -81,7 +81,7 @@ namespace TiendaDeportes.Views
                     //filtrar por nombre de fabricante a través de EF
                     lstCategorias = lstCategorias.Where(f => f.NOM_CATEGORIA.Contains(this.txtNombre.Text));
                 }
-                if (!this.cboCategoria.SelectedValue.ToString().Equals("0"))
+                if (!this.cboCategoria.SelectedValue.ToString().Equals("0") )
                 {
                     //filtrar por pais de fabricante a través de EF
                     lstCategorias = lstCategorias.Where(p =>
@@ -90,6 +90,20 @@ namespace TiendaDeportes.Views
 
                 grdDatos.DataSource = lstCategorias.ToList();
             }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.txtNombre.Text = "";
+            this.cboCategoria.SelectedValue = "0";
+            listarCategorias();
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmCategoriasGestion frmCategoriasGestion = new FrmCategoriasGestion();
+            frmCategoriasGestion.ShowDialog();
+            listCategorias();
         }
     }
     
