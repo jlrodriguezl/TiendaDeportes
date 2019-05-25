@@ -18,7 +18,7 @@ namespace TiendaDeportes.Views
             InitializeComponent();
         }
 
-        public void listCategorias()
+        public void CargarGrilla()
         {
             using(tiendaEntities db = new tiendaEntities())
             {
@@ -58,7 +58,7 @@ namespace TiendaDeportes.Views
 
         private void FrmCategorias_Load(object sender, EventArgs e)
         {
-            listCategorias();
+            CargarGrilla();
             listarCategorias();
         }
 
@@ -92,7 +92,7 @@ namespace TiendaDeportes.Views
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             this.txtNombre.Text = "";
             this.cboCategoria.SelectedValue = "0";
@@ -101,9 +101,36 @@ namespace TiendaDeportes.Views
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmCategoriasGestion frmCategoriasGestion = new FrmCategoriasGestion();
+            FrmCategoriasGestion frmCategoriasGestion = new FrmCategoriasGestion(null);
             frmCategoriasGestion.ShowDialog();
-            listCategorias();
+            CargarGrilla();
+        }
+
+        private CATEGORIAS getSelectedItem()
+        {
+            CATEGORIAS categoria = new CATEGORIAS();
+            try
+            {
+                categoria.ID_CATEGORIA = int.Parse(grdDatos.Rows[grdDatos.CurrentRow.Index].Cells[0].Value.ToString());
+                return categoria;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            //Retornar valor seleccionado en la tabla
+            CATEGORIAS categoria = getSelectedItem();
+            if (categoria != null)
+            {
+                //Llamar formulario en modo edicion
+                FrmCategoriasGestion frmCategoriasGestion = new FrmCategoriasGestion(categoria.ID_CATEGORIA);
+                frmCategoriasGestion.ShowDialog();
+                CargarGrilla();
+            }
         }
     }
     

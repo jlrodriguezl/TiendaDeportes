@@ -30,7 +30,7 @@
         {
             this.pnlCategorias = new System.Windows.Forms.GroupBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblCatPadre = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             // pnlCategorias
             // 
             this.pnlCategorias.Controls.Add(this.cboCategoria);
-            this.pnlCategorias.Controls.Add(this.button1);
+            this.pnlCategorias.Controls.Add(this.btnLimpiar);
             this.pnlCategorias.Controls.Add(this.btnBuscar);
             this.pnlCategorias.Controls.Add(this.txtNombre);
             this.pnlCategorias.Controls.Add(this.lblCatPadre);
@@ -69,16 +69,16 @@
             this.cboCategoria.Size = new System.Drawing.Size(186, 24);
             this.cboCategoria.TabIndex = 4;
             // 
-            // button1
+            // btnLimpiar
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(506, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(506, 67);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(100, 50);
+            this.btnLimpiar.TabIndex = 3;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // btnBuscar
             // 
@@ -168,6 +168,7 @@
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -210,7 +211,7 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox pnlListCategorias;
         private System.Windows.Forms.DataGridView grdDatos;
         private System.Windows.Forms.ComboBox cboCategoria;

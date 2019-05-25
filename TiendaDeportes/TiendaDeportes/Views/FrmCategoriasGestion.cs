@@ -15,9 +15,30 @@ namespace TiendaDeportes.Views
     {
         CATEGORIAS oCategorias = null;
         private int? idCategoria;
-        public FrmCategoriasGestion()
+        
+        public FrmCategoriasGestion(int? idCategoria )
         {
+            //Dibujar el formulario
             InitializeComponent();
+            //Recibir el dato de la PK (Si es nulo es modo inserción)
+            this.idCategoria = idCategoria;
+
+            //Si hay datos (edición)
+            if (idCategoria != null)
+            {
+                cargarDatos();
+            }
+        }
+
+        private void cargarDatos()
+        {
+            using (tiendaEntities db = new tiendaEntities())
+            {
+                //Consultar datos a editar de la base de datos
+                oCategorias = db.CATEGORIAS.Find(idCategoria);
+                txtNomCategoria.Text = oCategorias.NOM_CATEGORIA;
+                txtIdCatPadre.Text = oCategorias.ID_CATEGORIA_PADRE.ToString();
+            }
         }
 
         public void listCategorias()
@@ -52,7 +73,7 @@ namespace TiendaDeportes.Views
                 using (tiendaEntities db = new tiendaEntities())
                 {
                     //Si es modo inserción, inicializamos el objeto de fabricantes
-                    if (this.txtNomCategoria == null)
+                    if (this.idCategoria == null)
                     {
                         oCategorias = new CATEGORIAS();
                     }
@@ -60,7 +81,7 @@ namespace TiendaDeportes.Views
                     oCategorias.NOM_CATEGORIA = this.txtNomCategoria.Text;
                     oCategorias.ID_CATEGORIA_PADRE = int.Parse(this.txtIdCatPadre.Text);
 
-                    if (this.txtIdCatPadre == null)
+                    if (this.idCategoria == null)
                     {
                         //Insertar nuevo fabricante
                         db.CATEGORIAS.Add(oCategorias);
@@ -77,6 +98,11 @@ namespace TiendaDeportes.Views
                     this.Close();
                 }
             }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
